@@ -141,7 +141,7 @@ const createInitialBoard = (size: BoardSize): (Piece | null)[][] => {
 const initialState: GameState = {
   score: 0,
   isPlaying: false,
-  board: createInitialBoard('6x6'),
+  board: createInitialBoard('8x8'),
   selected: null,
   validMoves: [],
   turn: 'white',

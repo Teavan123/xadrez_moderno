@@ -6,7 +6,7 @@ import { useState } from 'react';
 import styles from './GameBoard.module.css';
 
 // Constantes do jogo
-const BOARD_SIZES = ['6x6', '6x8', '6x12', '12x12', '10x7'] as const;
+const BOARD_SIZES = ['8x8', '6x6', '6x8', '6x12', '12x12', '10x7'] as const;
 const PIECE_VALUES = {
   pawn: 1,
   knight: 3,
@@ -29,7 +29,7 @@ type BoardSize = typeof BOARD_SIZES[number];
  */
 const GameBoard = () => {
   const { state, dispatch } = useGame();
-  const [selectedSize, setSelectedSize] = useState<BoardSize>('6x6');
+  const [selectedSize, setSelectedSize] = useState<BoardSize>('8x8');
 
   /**
    * Inicia um novo jogo com o tamanho de tabuleiro selecionado
