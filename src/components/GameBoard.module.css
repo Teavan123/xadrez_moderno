@@ -1,0 +1,204 @@
+.gameBoard {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #0b0b0b; /* Fundo mais escuro */
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6); /* Sombra mais pronunciada */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.5rem; /* Fonte maior */
+  color: #4dd0e1; /* Azul futurista */
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra no texto */
+}
+
+.gameOver {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 12px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.gameOver h2 {
+  font-size: 2rem;
+  color: #646cff;
+  margin: 0;
+}
+
+.gameOver p {
+  font-size: 1.5rem;
+  color: #bdbdbd;
+  margin: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.score {
+  font-size: 1.8rem; /* Fonte maior */
+  font-weight: bold;
+  color: #e0f7fa; /* Azul claro */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* Sombra no texto */
+}
+
+.startGame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.dimensions {
+  display: flex;
+  justify-content: center;
+}
+
+.dimensions label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #bdbdbd;
+  font-size: 1.2rem;
+}
+
+.select {
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  color: white;
+  background-color: #1e1e1e;
+  border: 2px solid #404040;
+  border-radius: 8px;
+  cursor: pointer;
+  min-width: 120px;
+  text-align: center;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+.select option {
+  background-color: #1e1e1e;
+  color: white;
+  padding: 0.5rem;
+}
+
+.startButton {
+  display: block;
+  width: 220px; /* Largura um pouco maior */
+  margin: 2rem auto;
+  padding: 1.2rem 2.5rem; /* Padding maior */
+  font-size: 1.4rem; /* Fonte maior */
+  font-weight: bold;
+  color: #f5f5f5; /* Texto mais claro */
+  background-color: #4dd0e1; /* Azul futurista */
+  border: none;
+  border-radius: 28px; /* Bordas mais arredondadas */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transições mais suaves */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); /* Sombra no botão */
+}
+
+.startButton:hover {
+  background-color: #26c6da; /* Azul mais escuro no hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra maior no hover */
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(var(--board-width), 60px);
+  grid-template-rows: repeat(var(--board-height), 60px);
+  max-width: 100%;
+  overflow: auto;
+  gap: 2px; /* Espaçamento entre os quadrados para efeito de grade */
+  background-color: #212121; /* Fundo da grade */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  margin: 2rem auto; /* Margem maior */
+}
+
+.square {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  position: relative;
+  user-select: none;
+}
+
+.square[data-piece-color='white'] {
+  color: #ffffff;
+  text-shadow: 
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.square[data-piece-color='black'] {
+  color: #000000;
+}
+
+.light {
+  background-color: #424242; /* Cinza mais claro */
+}
+
+.dark {
+  background-color: #212121; /* Cinza mais escuro */
+}
+
+.selected {
+  outline: 4px solid #ffca28; /* Amarelo/Dourado para seleção */
+  z-index: 2;
+  box-shadow: 0 0 8px #ffca28; /* Brilho na seleção */
+}
+
+.validMove {
+  box-shadow: 0 0 0 6px #64b5f6 inset; /* Azul para movimentos válidos */
+  cursor: pointer;
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+.validMove:hover {
+  box-shadow: 0 0 0 8px #42a5f5 inset; /* Azul mais claro no hover */
+}
+
+.moveLine {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  border: 3px dashed #64b5f6; /* Linha tracejada azul */
+  border-radius: 50%;
+  opacity: 0.7;
+  z-index: 1;
+}
