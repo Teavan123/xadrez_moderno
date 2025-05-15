@@ -21,7 +21,7 @@ interface GameState {
   winner: 'white' | 'black' | null;
 }
 
-type BoardSize = '6x6' | '6x8' | '6x12' | '12x12' | '10x7';
+type BoardSize = '6x6' | '6x8' | '6x12' | '12x12' | '10x7' | '8x8';
 
 type GameAction =
   | { type: 'START_GAME'; payload: { size: BoardSize } }
@@ -38,6 +38,36 @@ const createInitialBoard = (size: BoardSize): (Piece | null)[][] => {
 
   // Configuração específica para cada tamanho
   switch (size) {
+    case '8x8':
+      // Configuração padrão do xadrez
+      // Peças pretas no topo
+      board[0][0] = { type: 'rook', color: 'black' };
+      board[0][1] = { type: 'knight', color: 'black' };
+      board[0][2] = { type: 'bishop', color: 'black' };
+      board[0][3] = { type: 'queen', color: 'black' };
+      board[0][4] = { type: 'king', color: 'black' };
+      board[0][5] = { type: 'bishop', color: 'black' };
+      board[0][6] = { type: 'knight', color: 'black' };
+      board[0][7] = { type: 'rook', color: 'black' };
+      // Peões pretos
+      for (let i = 0; i < 8; i++) {
+        board[1][i] = { type: 'pawn', color: 'black' };
+      }
+      // Peças brancas na base
+      board[7][0] = { type: 'rook', color: 'white' };
+      board[7][1] = { type: 'knight', color: 'white' };
+      board[7][2] = { type: 'bishop', color: 'white' };
+      board[7][3] = { type: 'queen', color: 'white' };
+      board[7][4] = { type: 'king', color: 'white' };
+      board[7][5] = { type: 'bishop', color: 'white' };
+      board[7][6] = { type: 'knight', color: 'white' };
+      board[7][7] = { type: 'rook', color: 'white' };
+      // Peões brancos
+      for (let i = 0; i < 8; i++) {
+        board[6][i] = { type: 'pawn', color: 'white' };
+      }
+      break;
+
     case '6x6':
     case '6x8':
     case '6x12':

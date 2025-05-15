@@ -8,7 +8,7 @@ Um jogo de xadrez moderno implementado em React com TypeScript. Este projeto ofe
 
 ## Funcionalidades
 
-- 🎮 Diferentes tamanhos de tabuleiro (6x6, 6x8, 6x12, 12x12, 10x7)
+- 🎮 Diferentes tamanhos de tabuleiro (8x8 tradicional, 6x6, 6x8, 6x12, 12x12, 10x7)
 - ⚔️ Sistema de captura de peças
 - 👑 Condição de vitória ao capturar o rei
 - 📊 Sistema de pontuação
